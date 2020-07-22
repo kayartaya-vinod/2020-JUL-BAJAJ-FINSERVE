@@ -5,6 +5,7 @@ Duration: 17 days, 4 hours each day<br>
 From: 13th July 2020<br>
 Mode: Online/ Microsoft Teams<br>
 
+<pre>
  _      _____   ___  ______  _   _      _    _  _____  _____  _   _      _   _  _____  _   _  _____ ______ 
 | |    |  ___| / _ \ | ___ \| \ | |    | |  | ||_   _||_   _|| | | |    | | | ||_   _|| \ | ||  _  ||  _  \
 | |    | |__  / /_\ \| |_/ /|  \| |    | |  | |  | |    | |  | |_| |    | | | |  | |  |  \| || | | || | | |
@@ -18,3 +19,4 @@ Software trainer, independent consultant and freelance developer.
 https://vinod.co
 vinod@vinod.co
 +91 973 142 4784
+</pre>
