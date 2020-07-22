@@ -1,0 +1,20 @@
+{
+  "name": "bajaj-finserve-nodejs-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "basic-calculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "contact-service": "^2.1.2",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mysql": "github:mysqljs/mysql"
+  }
+}
