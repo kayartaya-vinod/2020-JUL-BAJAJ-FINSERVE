@@ -1,0 +1,53 @@
+<h3>Customer details</h3>
+<hr>
+
+<!-- show this div when 'cust' is undefined -->
+<div class="text-center" *ngIf="cust===undefined">
+    <img src="/assets/images/loading.gif" alt="loading...">
+</div>
+
+
+<!-- show this div when 'cust' is available -->
+<div *ngIf="cust!==undefined">
+    <h5 class="alert alert-secondary">You are viewing the details of the company {{ cust.COMPANY_NAME }}</h5>
+
+    <!-- table.table>tr*9>td*2 -->
+    <table class="table">
+        <tr>
+            <td>Contact Name</td>
+            <td>{{ cust.CONTACT_NAME }}</td>
+        </tr>
+        <tr>
+            <td>Contact title</td>
+            <td>{{ cust.CONTACT_TITLE }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ cust.ADDRESS }}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{ cust.CITY }}</td>
+        </tr>
+        <tr>
+            <td>Region</td>
+            <td>{{ cust.REGION }}</td>
+        </tr>
+        <tr>
+            <td>Postal code</td>
+            <td>{{ cust.POSTAL_CODE }}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>{{ cust.COUNTRY }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ cust.PHONE }}</td>
+        </tr>
+        <tr>
+            <td>Fax</td>
+            <td>{{ cust.FAX }}</td>
+        </tr>
+    </table>
+</div>
