@@ -13,7 +13,7 @@ module.exports = (req, resp) => {
         // resp.send(result[0]);
 
         // delayed response (deliberate)
-        setTimeout(() => resp.send(result[0]), 5000);
+        setTimeout(() => resp.send(result[0]), 2000);
     });
     conn.end();
 };

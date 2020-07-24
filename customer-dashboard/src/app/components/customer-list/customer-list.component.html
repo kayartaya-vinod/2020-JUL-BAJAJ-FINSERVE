@@ -1,0 +1,26 @@
+<h3>List of customers</h3>
+<hr>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Sl no</th>
+            <th>Name of the company</th>
+            <th>Contact person</th>
+            <th>Job title</th>
+            <th>City</th>
+            <th>Phone number</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let cust of customers; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cust.COMPANY_NAME }}</td>
+            <td>{{ cust.CONTACT_NAME }}</td>
+            <td>{{ cust.CONTACT_TITLE }}</td>
+            <td>{{ cust.CITY }}</td>
+            <td>{{ cust.PHONE }}</td>
+        </tr>
+    </tbody>
+</table>
