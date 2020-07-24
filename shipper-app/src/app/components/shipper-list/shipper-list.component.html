@@ -1,0 +1,20 @@
+<h3>List of shippers</h3>
+<hr>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Sl no</th>
+            <th>Shipping company name</th>
+            <th>Phone number</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let s of shippers; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ s.COMPANY_NAME }}</td>
+            <td>{{ s.PHONE }}</td>
+        </tr>
+    </tbody>
+</table>
