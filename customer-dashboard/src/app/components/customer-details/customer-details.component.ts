@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../service/customer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-details',
@@ -10,11 +11,16 @@ export class CustomerDetailsComponent implements OnInit {
 
   public cust;
 
-  constructor(private service: CustomerService) { }
+  constructor(private service: CustomerService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.getOneCustomer('alfki')
-      .subscribe(data => this.cust = data);
+
+    this.activatedRoute.params.subscribe(p => {
+      this.service.getOneCustomer(p['customerId'])
+        .subscribe(data => this.cust = data);
+    });
+
+
   }
 
 }

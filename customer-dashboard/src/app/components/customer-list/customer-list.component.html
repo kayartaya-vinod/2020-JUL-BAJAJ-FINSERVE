@@ -16,7 +16,7 @@
     <tbody>
         <tr *ngFor="let cust of customers; index as i">
             <td>{{ i + 1 }}</td>
-            <td>{{ cust.COMPANY_NAME }}</td>
+            <td class="app-clickable" [routerLink]="['/view-details', cust.CUSTOMER_ID]">{{ cust.COMPANY_NAME }}</td>
             <td>{{ cust.CONTACT_NAME }}</td>
             <td>{{ cust.CONTACT_TITLE }}</td>
             <td>{{ cust.CITY }}</td>
@@ -24,3 +24,11 @@
         </tr>
     </tbody>
 </table>
+
+<!-- round brackets arount an attribute means function binding -->
+<!-- 'click' here is an event -->
+<!-- <button class="btn btn-primary" (click)="loadMore()">Load more</button> -->
+<button class="btn btn-primary" >First</button>
+<button class="btn btn-primary" >Previous</button>
+<button class="btn btn-primary" >Next</button>
+<button class="btn btn-primary" >Last</button>

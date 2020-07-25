@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map'; // npm i rxjs-compat
 
 const baseUrl = 'http://localhost:3000/customers/';
 
@@ -15,9 +15,9 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCustomers(): Observable<Array<any>> {
+  getAllCustomers(pageNum: number = 1): Observable<Array<any>> {
     return this.http
-      .get(baseUrl)
+      .get(baseUrl + '?page=' + pageNum)
       .map(resp => resp as Array<any>);
   }
 
