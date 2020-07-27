@@ -9,19 +9,19 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class CustomerListComponent implements OnInit {
 
-  pageNum: number = 1;
+  // pageNum: number = 1;
   customers: Array<any> = [];
   // totalCustomers: number;
   lastPage: number;
 
-  constructor(private service: CustomerService) { }
+  constructor(public service: CustomerService) { }
 
   ngOnInit(): void {
     this.loadData();
   }
 
   loadData() {
-    this.service.getAllCustomers(this.pageNum)
+    this.service.getAllCustomers(this.service.pageNum)
       .subscribe(resp => {
         this.customers = resp.data;
         // this.totalCustomers = resp.count;
@@ -32,16 +32,16 @@ export class CustomerListComponent implements OnInit {
   gotoPage(where: string = 'first') {
     switch (where) {
       case 'last':
-        this.pageNum = this.lastPage;
+        this.service.pageNum = this.lastPage;
         break;
       case 'prev':
-        if (this.pageNum > 1) this.pageNum--;
+        if (this.service.pageNum > 1) this.service.pageNum--;
         break;
       case 'next':
-        if (this.pageNum < this.lastPage) this.pageNum++;
+        if (this.service.pageNum < this.lastPage) this.service.pageNum++;
         break;
       default:
-        this.pageNum = 1;
+        this.service.pageNum = 1;
     }
 
     this.loadData();
@@ -51,9 +51,9 @@ export class CustomerListComponent implements OnInit {
     switch (btn) {
       case 'first':
       case 'prev':
-        return this.pageNum === 1 ? 'btn-danger' : '';
+        return this.service.pageNum === 1 ? 'btn-danger' : '';
       default:
-        return this.pageNum === this.lastPage ? 'btn-danger' : '';
+        return this.service.pageNum === this.lastPage ? 'btn-danger' : '';
     }
   }
 }

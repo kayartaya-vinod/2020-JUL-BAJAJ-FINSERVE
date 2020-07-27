@@ -1,1 +1,103 @@
-<p>add-new-customer works!</p>
+<h3>Add new customer</h3>
+<hr>
+
+<form>
+    <div class="row">
+
+
+        <div class="col">
+
+            <div class="form-group">
+                <label for="custId">Customer ID</label>
+                <input id="custId" name="custId" type="text" 
+                    [(ngModel)]="cust.CUSTOMER_ID"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="compName">Company name</label>
+                <input id="compName" name="compName" type="text" 
+                    [(ngModel)]="cust.COMPANY_NAME"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="contName">Name of the contact person</label>
+                <input id="contName" name="contName" type="text" 
+                    [(ngModel)]="cust.CONTACT_NAME"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="conTitle">Job title of contact person</label>
+                <input id="conTitle" name="conTitle" type="text" 
+                    [(ngModel)]="cust.CONTACT_TITLE"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="addr">Address</label>
+                <input id="addr" name="addr" type="text" 
+                    [(ngModel)]="cust.ADDRESS"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" 
+                    [(ngModel)]="cust.CITY"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="col">
+
+
+            <div class="form-group">
+                <label for="region">Region/state</label>
+                <input id="region" name="region" type="text" 
+                    [(ngModel)]="cust.REGION"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="pin">Pin code</label>
+                <input id="pin" name="pin" type="text" 
+                    [(ngModel)]="cust.POSTAL_CODE"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input id="country" name="country" type="text" 
+                    [(ngModel)]="cust.COUNTRY"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" 
+                    [(ngModel)]="cust.PHONE"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="fax">FAX number</label>
+                <input id="fax" name="fax" type="tel" 
+                    [(ngModel)]="cust.FAX"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>&nbsp;</label>
+                <div>
+                    <button class="btn btn-primary" 
+                        (click)="save()">Submit</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>

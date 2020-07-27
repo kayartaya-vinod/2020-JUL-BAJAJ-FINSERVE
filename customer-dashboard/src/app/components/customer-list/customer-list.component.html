@@ -1,22 +1,22 @@
 <h3>List of customers</h3>
 <hr>
 <!--
-<button [ngClass]="{'btn-danger': pageNum===1}" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
-<button [ngClass]="{'btn-danger': pageNum===1}" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
+<button [ngClass]="{'btn-danger': service.pageNum===1}" [disabled]="service.pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
+<button [ngClass]="{'btn-danger': service.pageNum===1}" [disabled]="service.pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
 
-Showing page {{ pageNum }} of {{ lastPage }} &nbsp;
+Showing page {{ service.pageNum }} of {{ lastPage }} &nbsp;
 
-<button [ngClass]="{'btn-danger': pageNum===lastPage}" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
-<button [ngClass]="{'btn-danger': pageNum===lastPage}" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
+<button [ngClass]="{'btn-danger': service.pageNum===lastPage}" [disabled]="service.pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
+<button [ngClass]="{'btn-danger': service.pageNum===lastPage}" [disabled]="service.pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
 -->
 
-<button [ngClass]="getBtnClass('first')" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
-<button [ngClass]="getBtnClass('prev')" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
+<button [ngClass]="getBtnClass('first')" [disabled]="service.pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
+<button [ngClass]="getBtnClass('prev')" [disabled]="service.pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
 
-Showing page {{ pageNum }} of {{ lastPage }} &nbsp;
+Showing page {{ service.pageNum }} of {{ lastPage }} &nbsp;
 
-<button [ngClass]="getBtnClass('next')" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
-<button [ngClass]="getBtnClass('last')" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
+<button [ngClass]="getBtnClass('next')" [disabled]="service.pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
+<button [ngClass]="getBtnClass('last')" [disabled]="service.pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
 
 <br><br>
 

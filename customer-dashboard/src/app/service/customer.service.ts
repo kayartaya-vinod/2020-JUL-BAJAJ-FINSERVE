@@ -13,7 +13,13 @@ const baseUrl = 'http://localhost:3000/customers/';
 })
 export class CustomerService {
 
+  pageNum: number = 1;
+
   constructor(private http: HttpClient) { }
+
+  addNewCustomer(customer: any): Observable<any> {
+    return this.http.post(baseUrl, customer);
+  }
 
   getAllCustomers(pageNum: number = 1): Observable<any> {
     return this.http
