@@ -1,5 +1,24 @@
 <h3>List of customers</h3>
 <hr>
+<!--
+<button [ngClass]="{'btn-danger': pageNum===1}" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
+<button [ngClass]="{'btn-danger': pageNum===1}" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
+
+Showing page {{ pageNum }} of {{ lastPage }} &nbsp;
+
+<button [ngClass]="{'btn-danger': pageNum===lastPage}" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
+<button [ngClass]="{'btn-danger': pageNum===lastPage}" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
+-->
+
+<button [ngClass]="getBtnClass('first')" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage()" >First</button> &nbsp;
+<button [ngClass]="getBtnClass('prev')" [disabled]="pageNum===1" class="btn btn-primary" (click)="gotoPage('prev')">Previous</button> &nbsp;
+
+Showing page {{ pageNum }} of {{ lastPage }} &nbsp;
+
+<button [ngClass]="getBtnClass('next')" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('next')">Next</button> &nbsp;
+<button [ngClass]="getBtnClass('last')" [disabled]="pageNum===lastPage" class="btn btn-primary" (click)="gotoPage('last')" >Last</button>
+
+<br><br>
 
 <table class="table table-bordered table-striped table-hover">
     <thead>
@@ -28,7 +47,3 @@
 <!-- round brackets arount an attribute means function binding -->
 <!-- 'click' here is an event -->
 <!-- <button class="btn btn-primary" (click)="loadMore()">Load more</button> -->
-<button class="btn btn-primary" >First</button>
-<button class="btn btn-primary" >Previous</button>
-<button class="btn btn-primary" >Next</button>
-<button class="btn btn-primary" >Last</button>

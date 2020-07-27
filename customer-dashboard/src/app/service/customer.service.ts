@@ -15,10 +15,9 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCustomers(pageNum: number = 1): Observable<Array<any>> {
+  getAllCustomers(pageNum: number = 1): Observable<any> {
     return this.http
-      .get(baseUrl + '?page=' + pageNum)
-      .map(resp => resp as Array<any>);
+      .get(baseUrl + '?page=' + pageNum);
   }
 
   getOneCustomer(custId: string): Observable<any> {

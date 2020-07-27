@@ -14,7 +14,20 @@ module.exports = function (req, resp) {
         [parseInt(limit), skip],
         (err, rows) => {
             if (err) throw err;
-            resp.send(rows);
+            
+            conn.query('select count(*) as count from customers', 
+                (err, result)=>{
+                    if(err) throw err;
+
+                    resp.json({
+                        data: rows,
+                        count: result[0].count
+                    })
+
+                });
+
+                conn.end();
+
         });
-    conn.end();
+    
 };

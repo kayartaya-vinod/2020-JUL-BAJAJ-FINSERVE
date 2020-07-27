@@ -1,0 +1,5 @@
+http://localhost:3000/customers
+
+
+
+http://localhost:3000/customers?page=2&limit=20

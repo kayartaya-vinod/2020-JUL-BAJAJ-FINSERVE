@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../service/customer.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-customer-list',
@@ -10,6 +11,8 @@ export class CustomerListComponent implements OnInit {
 
   pageNum: number = 1;
   customers: Array<any> = [];
+  // totalCustomers: number;
+  lastPage: number;
 
   constructor(private service: CustomerService) { }
 
@@ -17,26 +20,40 @@ export class CustomerListComponent implements OnInit {
     this.loadData();
   }
 
-  next() {
-    this.pageNum++;
+  loadData() {
     this.service.getAllCustomers(this.pageNum)
-      .subscribe(data => this.customers = data);
+      .subscribe(resp => {
+        this.customers = resp.data;
+        // this.totalCustomers = resp.count;
+        this.lastPage = Math.trunc(resp.count / 10) + 1;
+      })
   }
 
-  previous() {
-    this.pageNum--;
-    this.service.getAllCustomers(this.pageNum)
-      .subscribe(data => this.customers = data);
-  }
+  gotoPage(where: string = 'first') {
+    switch (where) {
+      case 'last':
+        this.pageNum = this.lastPage;
+        break;
+      case 'prev':
+        if (this.pageNum > 1) this.pageNum--;
+        break;
+      case 'next':
+        if (this.pageNum < this.lastPage) this.pageNum++;
+        break;
+      default:
+        this.pageNum = 1;
+    }
 
-  loadMore(): void {
-    this.pageNum++;
     this.loadData();
   }
 
-  loadData() {
-    this.service.getAllCustomers(this.pageNum)
-      .subscribe(data => this.customers.push(...data));
+  getBtnClass(btn: string = 'first') {
+    switch (btn) {
+      case 'first':
+      case 'prev':
+        return this.pageNum === 1 ? 'btn-danger' : '';
+      default:
+        return this.pageNum === this.lastPage ? 'btn-danger' : '';
+    }
   }
-
 }
