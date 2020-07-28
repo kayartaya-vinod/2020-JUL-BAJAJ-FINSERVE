@@ -1,7 +1,8 @@
 <h3>Add new customer</h3>
 <hr>
 
-<form>
+<!-- frm is a reference to the entire form -->
+<form #frm="ngForm">
     <div class="row">
 
 
@@ -9,43 +10,47 @@
 
             <div class="form-group">
                 <label for="custId">Customer ID</label>
-                <input id="custId" name="custId" type="text" 
-                    [(ngModel)]="cust.CUSTOMER_ID"
-                    class="form-control">
+                <!-- ngModel is an object representing this input textfield. -->
+                <!-- by assigning ngModel to #xyz we get a reference to the ngModel, which represents the entire textfield -->
+                <!-- so, xyz is a reference to the textfeild, using which we can access properties like:
+                xyz.valid, xyz.invalid, xyz.pristine, xyz.dirty, xyz.errors etc. -->
+                <input id="custId" name="custId" type="text" [(ngModel)]="cust.CUSTOMER_ID" #custId="ngModel" required
+                    minlength="3" maxlength="5" class="form-control">
+
+                <div class="text-danger" *ngIf="custId.dirty && custId.errors">
+                    <small *ngIf="custId.errors.required">Customer id is mandatory</small>
+                    <small *ngIf="custId.errors.minlength">At least 3 letters required</small>
+                </div>
+
             </div>
 
             <div class="form-group">
                 <label for="compName">Company name</label>
-                <input id="compName" name="compName" type="text" 
-                    [(ngModel)]="cust.COMPANY_NAME"
-                    class="form-control">
+                <input id="compName" #compName="ngModel" name="compName" type="text" [(ngModel)]="cust.COMPANY_NAME"
+                    required minlength="5" maxlength="40" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="contName">Name of the contact person</label>
-                <input id="contName" name="contName" type="text" 
-                    [(ngModel)]="cust.CONTACT_NAME"
-                    class="form-control">
+                <input id="contName" #contName="ngModel" name="contName" type="text" [(ngModel)]="cust.CONTACT_NAME"
+                    required minlength="5" maxlength="30" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="conTitle">Job title of contact person</label>
-                <input id="conTitle" name="conTitle" type="text" 
-                    [(ngModel)]="cust.CONTACT_TITLE"
-                    class="form-control">
+                <input id="conTitle" #conTitle="ngModel" name="conTitle" type="text" [(ngModel)]="cust.CONTACT_TITLE"
+                    required minlength="5" maxlength="30" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="addr">Address</label>
-                <input id="addr" name="addr" type="text" 
-                    [(ngModel)]="cust.ADDRESS"
-                    class="form-control">
+                <input id="addr" #addr="ngModel" name="addr" type="text" [(ngModel)]="cust.ADDRESS" required
+                    maxlength="75" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="city">City</label>
-                <input id="city" name="city" type="text" 
-                    [(ngModel)]="cust.CITY"
+                <input id="city" #city="ngModel" name="city" type="text" [(ngModel)]="cust.CITY" required maxlength="75"
                     class="form-control">
             </div>
         </div>
@@ -55,43 +60,47 @@
 
             <div class="form-group">
                 <label for="region">Region/state</label>
-                <input id="region" name="region" type="text" 
-                    [(ngModel)]="cust.REGION"
-                    class="form-control">
+                <input id="region" #region="ngModel" name="region" type="text" [(ngModel)]="cust.REGION" required
+                    maxlength="20" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="pin">Pin code</label>
-                <input id="pin" name="pin" type="text" 
-                    [(ngModel)]="cust.POSTAL_CODE"
-                    class="form-control">
+                <input id="pin" #pin="ngModel" name="pin" type="text" [(ngModel)]="cust.POSTAL_CODE" required
+                    pattern="\d{5,7}" class="form-control">
+
+                <div class="text-danger" *ngIf="pin.dirty && pin.errors">
+                    <small *ngIf="pin.errors.required">Postal code is required</small>
+                    <small *ngIf="pin.errors.pattern">Only 5-7 digits allowed</small>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="country">Country</label>
-                <input id="country" name="country" type="text" 
-                    [(ngModel)]="cust.COUNTRY"
-                    class="form-control">
+                <input id="country" #country="ngModel" name="country" type="text" [(ngModel)]="cust.COUNTRY" required
+                    maxlength="15" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" 
-                    [(ngModel)]="cust.PHONE"
-                    class="form-control">
+                <input id="phone" #phone="ngModel" name="phone" type="tel" [(ngModel)]="cust.PHONE" required
+                    maxlength="20" pattern="[1-9][0-9]{9,11}" class="form-control">
+                <div class="text-danger" *ngIf="phone.dirty && phone.errors">
+                    <small *ngIf="phone.errors.required">Phone number is required</small>
+                    <small *ngIf="phone.errors.pattern">Only 10-12 digits allowed</small>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="fax">FAX number</label>
-                <input id="fax" name="fax" type="tel" 
-                    [(ngModel)]="cust.FAX"
+                <input id="fax" #fax="ngModel" name="fax" type="tel" [(ngModel)]="cust.FAX" required maxlength="20"
                     class="form-control">
             </div>
 
             <div class="form-group">
                 <label>&nbsp;</label>
                 <div>
-                    <button class="btn btn-primary" 
+                    <button class="btn btn-primary" [disabled]="frm.invalid" [ngClass]="{'btn-warning': frm.invalid}"
                         (click)="save()">Submit</button>
                 </div>
             </div>
@@ -101,3 +110,7 @@
 
     </div>
 </form>
+
+<!-- 
+    <form #frm="ngForm">
+ -->

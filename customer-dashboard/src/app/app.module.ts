@@ -12,6 +12,8 @@ import { CustomerListComponent } from './components/customer-list/customer-list.
 import { HomeComponent } from './components/home/home.component';
 import { AddNewCustomerComponent } from './components/add-new-customer/add-new-customer.component';
 import { PnfComponent } from './components/pnf/pnf.component';
+import { PipesDemoComponent } from './components/pipes-demo/pipes-demo.component';
+import { JsonformatterPipe } from './pipes/jsonformatter.pipe';
 
 // a 'Route' is an object that contains 'path'->'Component' mapping
 // a 'path' is nothing but a URI segment
@@ -43,6 +45,10 @@ const routeConfig: Array<Route> = [
     component: CustomerDetailsComponent
   },
   {
+    path: 'pipes-demo',
+    component: PipesDemoComponent
+  },
+  {
     // this is the default route handler; must be the last one.
     path: '**',
     component: PnfComponent
@@ -58,7 +64,9 @@ const routeConfig: Array<Route> = [
     CustomerListComponent,
     HomeComponent,
     AddNewCustomerComponent,
-    PnfComponent
+    PnfComponent,
+    PipesDemoComponent,
+    JsonformatterPipe
   ],
   imports: [
     BrowserModule,

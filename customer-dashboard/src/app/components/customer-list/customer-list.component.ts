@@ -25,7 +25,7 @@ export class CustomerListComponent implements OnInit {
       .subscribe(resp => {
         this.customers = resp.data;
         // this.totalCustomers = resp.count;
-        this.lastPage = Math.trunc(resp.count / 10) + 1;
+        this.lastPage = resp.count % 10 === 0 ? resp.count / 10 : Math.trunc(resp.count / 10) + 1;
       })
   }
 
