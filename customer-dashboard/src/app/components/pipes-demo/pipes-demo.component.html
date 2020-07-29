@@ -28,6 +28,19 @@
 </p>
 
 <div>
+    <p>{{ dob | age }}</p>
+    <p>{{ dob | age : 1 }}</p>
+    <p>{{ dob | age : 2 }}</p>
+    <p>{{ dob | age : 3 }}</p>
+
+    <p>{{ anotherDob | age }}</p>
+    <p>{{ anotherDob | age : 1 }}</p>
+    <p>{{ anotherDob | age : 2 }}</p>
+    <p>{{ anotherDob | age : 3 }}</p>
+
+</div>
+
+<div>
     p1 is 
 
     <pre>{{ p1 | jsonify : 4 }}</pre>

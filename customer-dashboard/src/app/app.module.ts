@@ -14,6 +14,7 @@ import { AddNewCustomerComponent } from './components/add-new-customer/add-new-c
 import { PnfComponent } from './components/pnf/pnf.component';
 import { PipesDemoComponent } from './components/pipes-demo/pipes-demo.component';
 import { JsonformatterPipe } from './pipes/jsonformatter.pipe';
+import { AgePipe } from './pipes/age.pipe';
 
 // a 'Route' is an object that contains 'path'->'Component' mapping
 // a 'path' is nothing but a URI segment
@@ -66,7 +67,8 @@ const routeConfig: Array<Route> = [
     AddNewCustomerComponent,
     PnfComponent,
     PipesDemoComponent,
-    JsonformatterPipe
+    JsonformatterPipe,
+    AgePipe
   ],
   imports: [
     BrowserModule,

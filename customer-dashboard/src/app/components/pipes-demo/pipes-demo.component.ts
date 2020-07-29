@@ -17,6 +17,9 @@ export class PipesDemoComponent implements OnInit {
     }
   };
 
+  dob: string = "1973-10-02";
+  anotherDob: Date = new Date(127872000000);
+
   amount:number = 123456.2355;
   today = new Date(); //Date.now();
 
