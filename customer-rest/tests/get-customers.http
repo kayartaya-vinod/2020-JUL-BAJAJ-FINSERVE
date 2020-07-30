@@ -1,3 +1,5 @@
-GET /customers/ANTON HTTP/1.1
+GET /customers?page=2 HTTP/1.1
 Host: localhost:3000
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImZpcnN0bmFtZSI6IlZpbm9kIiwibGFzdG5hbWUiOiJLdW1hciIsImlhdCI6MTU5NjAwMjU0OTU1Mn0.b2xS7Raiw2XXe4__HsKYF0hPMBFW2ZzyVhMIUu9opsw
+Accept: application/json, text/plain, */*
+Referer: http://localhost:4200/view-all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImZpcnN0bmFtZSI6IlZpbm9kIiwibGFzdG5hbWUiOiJLdW1hciIsImlhdCI6MTU5NjEyNTU3ODQzNn0.TrzBen8dkXtNMsaY0LpSaFe7Icu3LjcSgm6H8hMxewA

@@ -19,7 +19,12 @@ export class CustomerService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   addNewCustomer(customer: any): Observable<any> {
-    return this.http.post(baseUrl, customer);
+    const options = {
+      headers: {
+        'authorization': 'Bearer ' + this.authService.token
+      }
+    };
+    return this.http.post(baseUrl, customer, options);
   }
 
   getAllCustomers(pageNum: number = 1): Observable<any> {
@@ -36,9 +41,9 @@ export class CustomerService {
     custId = custId.toUpperCase();
     const options = {
       headers: {
-        'Authorization': 'Bearer ' + this.authService.token
+        'authorization': 'Bearer ' + this.authService.token
       }
     };
-    return this.http.get(baseUrl + '/' + custId);//, options);
+    return this.http.get(baseUrl + '/' + custId, options);
   }
 }

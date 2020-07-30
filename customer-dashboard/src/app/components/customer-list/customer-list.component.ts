@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../service/customer.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -14,10 +15,17 @@ export class CustomerListComponent implements OnInit {
   // totalCustomers: number;
   lastPage: number;
 
-  constructor(public service: CustomerService) { }
+  constructor(public service: CustomerService,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.loadData();
+    if (!this.authService.isUserLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+    else {
+      this.loadData();
+    }
   }
 
   loadData() {
