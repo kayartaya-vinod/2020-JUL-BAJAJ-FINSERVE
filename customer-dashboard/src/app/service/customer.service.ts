@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'; // npm i rxjs-compat
 import { AuthService } from './auth.service';
 
-const baseUrl = 'http://localhost:3000/customers/';
+const baseUrl = 'http://localhost:3000/customers';
 
 
 // injectables are singletons (Angular creates a single instance of this class)
@@ -25,7 +25,7 @@ export class CustomerService {
   getAllCustomers(pageNum: number = 1): Observable<any> {
     const options = {
       headers: {
-        'Authorization': 'JWT ' + this.authService.token
+        'authorization': 'Bearer ' + this.authService.token
       }
     };
     return this.http
@@ -34,6 +34,11 @@ export class CustomerService {
 
   getOneCustomer(custId: string): Observable<any> {
     custId = custId.toUpperCase();
-    return this.http.get(baseUrl + custId);
+    const options = {
+      headers: {
+        'Authorization': 'Bearer ' + this.authService.token
+      }
+    };
+    return this.http.get(baseUrl + '/' + custId);//, options);
   }
 }

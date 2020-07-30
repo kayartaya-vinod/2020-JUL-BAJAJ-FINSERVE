@@ -7,14 +7,15 @@ const port = 3000;
 
 // register bodyParser middleware with express
 app.use(bodyParser.json());
-// middleware to check if the request contains JWT token in the form of a header, and 
-// allow the user to access any routes, only if the JWT is present and not-tampered
-app.use(require('./middlewares/auth'));
 // register a middleware, which enables CORS
 app.use(require('./middlewares/cors'));
 
 // REST endpoint to check the login credentials
 app.post('/login', require('./handlers/login'));
+
+// middleware to check if the request contains JWT token in the form of a header, and 
+// allow the user to access any routes, only if the JWT is present and not-tampered
+app.use(require('./middlewares/auth'));
 // register a handler (listener) for GET (http method) for '/customers' URL
 app.get('/customers', require('./handlers/get-all-customers'));
 app.get('/customers/:custId', require('./handlers/get-one-customer'));
