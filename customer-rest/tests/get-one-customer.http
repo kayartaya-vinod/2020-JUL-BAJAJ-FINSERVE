@@ -1,3 +1,4 @@
 GET /customers/JNDOE HTTP/1.1
 Host: localhost:3000
 Accept: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImZpcnN0bmFtZSI6IlZpbm9kIiwibGFzdG5hbWUiOiJLdW1hciIsImlhdCI6MTU5NjA4MDIyODY1MH0.we0QPr-jOIzvuHdxUHwyXbkn7b7lYHnNpzt2GhB3UZc

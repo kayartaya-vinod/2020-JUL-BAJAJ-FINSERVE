@@ -8,5 +8,8 @@
     <button routerLink="/home" class="btn btn-link">Home</button> |
     <button routerLink="/view-all" class="btn btn-link">View all</button> |
     <button routerLink="/add-new" class="btn btn-link">Add new</button> |
-    <button routerLink="/pipes-demo" class="btn btn-link">Pipes demo</button> 
+    <button routerLink="/pipes-demo" class="btn btn-link">Pipes demo</button> |
+    
+    <button *ngIf="!authService.isUserLoggedIn" routerLink="/login" class="btn btn-link">Login</button> 
+    <button *ngIf="authService.isUserLoggedIn" (click)="logout()" class="btn btn-link">Logout</button> 
 </div>

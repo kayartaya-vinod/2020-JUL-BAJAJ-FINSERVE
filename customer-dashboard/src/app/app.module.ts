@@ -15,6 +15,7 @@ import { PnfComponent } from './components/pnf/pnf.component';
 import { PipesDemoComponent } from './components/pipes-demo/pipes-demo.component';
 import { JsonformatterPipe } from './pipes/jsonformatter.pipe';
 import { AgePipe } from './pipes/age.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 // a 'Route' is an object that contains 'path'->'Component' mapping
 // a 'path' is nothing but a URI segment
@@ -50,6 +51,10 @@ const routeConfig: Array<Route> = [
     component: PipesDemoComponent
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     // this is the default route handler; must be the last one.
     path: '**',
     component: PnfComponent
@@ -68,7 +73,8 @@ const routeConfig: Array<Route> = [
     PnfComponent,
     PipesDemoComponent,
     JsonformatterPipe,
-    AgePipe
+    AgePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

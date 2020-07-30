@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const mysqlCfg = require('./mysql-config');
 
 // secret key to be maintained only on the server side, and must be a very complex string
-const secretKey = require('./secret.key');
+const secretKey = require('../secret.key');
 
 module.exports = (req, resp) => {
     // check if payload contains email/password (in md5 format) fields
