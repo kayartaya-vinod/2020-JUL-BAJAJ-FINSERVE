@@ -1,16 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// const cors = require('./middlewares/cors');
 
 const app = express(); // const server = http.createServer(callback);
-app.use(cors());
 const port = 3000;
 
 // register bodyParser middleware with express
 app.use(bodyParser.json());
+
 // register a middleware, which enables CORS
-// app.use(require('./middlewares/cors'));
-app.options('*', cors());
+app.use(cors());
 
 // REST endpoint to check the login credentials
 app.post('/login', require('./handlers/login'));

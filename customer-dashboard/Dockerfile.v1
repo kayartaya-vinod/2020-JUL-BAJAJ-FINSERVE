@@ -1,0 +1,11 @@
+FROM alpine:latest
+# always mention what is your base OS image
+
+WORKDIR /usr/vinod/app
+# this creates a folder (if does not exist) and 'cd' into the same
+
+COPY ./dist/customer-dashboard/ ./
+# copy files/folders from host os to the container os's workdir
+
+CMD [ "ls", "-l" ]
+# startup command for the container
