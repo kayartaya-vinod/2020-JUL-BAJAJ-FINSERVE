@@ -7,7 +7,7 @@ Mode: Online/ Microsoft Teams<br>
 
 ## Click the link below:
 
-<h1><a href="https://courses.vinod.co/build-awesome-web-apps-using-angular">Build awesome web apps using Angular</a></h1>
+<h1><a href="https://courses.vinod.co/build-awesome-web-apps-using-angular/buy">Build awesome web apps using Angular</a></h1>
 
 <pre>
  _      _____   ___  ______  _   _      _    _  _____  _____  _   _      _   _  _____  _   _  _____ ______ 
