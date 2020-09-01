@@ -5,7 +5,9 @@ Duration: 17 days, 4 hours each day<br>
 From: 13th July 2020<br>
 Mode: Online/ Microsoft Teams<br>
 
-<h1><a href="https://courses.vinod.co/build-awesome-web-apps-using-angular">Click here for the course `Build awesome web apps using Angular`</a>git </h1>
+## Click the link below:
+
+<h1><a href="https://courses.vinod.co/build-awesome-web-apps-using-angular">Build awesome web apps using Angular</a></h1>
 
 <pre>
  _      _____   ___  ______  _   _      _    _  _____  _____  _   _      _   _  _____  _   _  _____ ______ 
